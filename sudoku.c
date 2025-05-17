@@ -43,9 +43,54 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
+int is_valid(Node* n)
+{
+  for (int i = 0; i < 9; i++) {
+    int seen[10];
+    for (int j = 0; j < 10; j++) seen[j] = 0;
+    for (int j = 0; j < 9; j++)
+    {
+      int val = n->sudo[i][j];
+      if (val != 0)
+      {
+        if (seen[val]) return 0;
+        seen[val] = 1;
+      }
+    }
+  }
 
-    return 1;
+  for (int j = 0; j < 9; j++) {
+    int seen[10];
+    for (int i = 0; i < 10; i++) seen[i] = 0;
+    for (int i = 0; i < 9; i++)
+    {
+      int val = n->sudo[i][j];
+      if (val != 0)
+      {
+        if (seen[val]) return 0; // Repetido en columna
+        seen[val] = 1;
+      }
+    }
+  }
+
+  for (int k = 0; k < 9; k++)
+  {
+    int seen[10];
+    for (int i = 0; i < 10; i++) seen[i] = 0;
+    for (int p = 0; p < 9; p++)
+    {
+      int i = 3 * (k / 3) + (p / 3);
+      int j = 3 * (k % 3) + (p % 3);
+      int val = n->sudo[i][j];
+
+      if (val != 0)
+      {
+        if (seen[val]) return 0; // Repetido en submatriz
+        seen[val] = 1;
+      }
+    }
+  }
+  return 1;
 }
 
 
