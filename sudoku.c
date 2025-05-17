@@ -142,7 +142,7 @@ Node* DFS(Node* initial, int* cont)
 
     if(is_final(current))
     {
-      cleanStack(S);
+      clean(S);
       return current;
     }
 
