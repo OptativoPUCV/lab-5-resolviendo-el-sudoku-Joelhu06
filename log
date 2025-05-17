@@ -22,3 +22,14 @@ Sat, May 17, 2025  3:50:02 PM:
  tests:  7|1
 total_score: 55/70
 13df8bd
+Sat, May 17, 2025  3:59:55 PM: 
+ sudoku.c | 29 ++++++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'DFS':
+sudoku.c:145:7: error: implicit declaration of function 'cleanStack' [-Werror=implicit-function-declaration]
+       cleanStack(S);
+       ^~~~~~~~~~
+cc1.exe: all warnings being treated as errors
+bd9c082
